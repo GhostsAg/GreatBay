@@ -2,8 +2,7 @@
 
 //R - Retrieve all items availible for sale and their prices
 function retrieveItem(){
-
-    
+    connection.query()
 }
 //U - Update current bid on item
 

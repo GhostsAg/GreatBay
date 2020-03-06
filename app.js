@@ -1,5 +1,5 @@
 const inquirer = require ("inquirer");
-
+const connect = require('./connect')
 let options = ["POST", "BID"];
 let ebid = [];
 
@@ -29,11 +29,11 @@ function greatBay() {
                 let newPost = new Post(data.options, extraData.submit, extraData.item);
                 ebid.push(newPost);
             })
-        } else if (data.role === "BID") {
+        } else if (data.options === "BID") {
             inquirer.prompt([
                 {
                     type:"list",
-                    choices:"",
+                    choices:[1,2,3],
                     message: "What auction would you like to place a bid in?",
                     name: "bid"
                 },
@@ -43,8 +43,9 @@ function greatBay() {
                     
                 }
             ]).then(function(extraData) {
-              bid();
+                connect(extraData.cost, extraData.bid);
             })
         }
     })
 }
+greatBay();

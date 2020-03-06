@@ -16,8 +16,7 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
     if(err) throw err;
     console.log("connected as id: " + connection.threadId + "\n");
-    //createBid("cup", 5);  Insert inquirer data wit this function.
-    
+    bid();
 });
 
 const createBid = (item, price) => {
@@ -66,17 +65,17 @@ const timeOut = (itemId) => {
         }
     }, 1000);
 }
+
 //Updates on bid
-function bid() {
-    console.log("Updating bid...\n");
+function bid(cost,name) {
     connection.query(
       "UPDATE items SET ? WHERE ?",
       [
         {
-            current_bid: extraData.cost
+            current_bid: cost
         },
         {
-            id: extraData.bid
+            id: name
         }
       ],
       function(err, res) {
@@ -85,3 +84,6 @@ function bid() {
       }
     );
   }
+
+  module.exports =
+  bid
