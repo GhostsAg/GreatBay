@@ -18,3 +18,22 @@ connection.connect(function(err) {
     //createBid();
 });
 
+//Updates on bid
+function bid() {
+    console.log("Updating bid...\n");
+    connection.query(
+      "UPDATE items SET ? WHERE ?",
+      [
+        {
+            current_bid: extraData.cost
+        },
+        {
+            id: extraData.bid
+        }
+      ],
+      function(err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " products updated!\n");
+      }
+    );
+  }
