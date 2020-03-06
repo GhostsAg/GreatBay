@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
 
     user: "root",
 
-    password: "password",
+    password: "Rh12271995",
 
     database: "great_bay"
 });
@@ -15,20 +15,19 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
     if(err) throw err;
     console.log("connected as id: " + connection.threadId + "\n");
-    //createBid();
+    bid();
 });
 
 //Updates on bid
-function bid() {
-    console.log("Updating bid...\n");
+function bid(cost,name) {
     connection.query(
       "UPDATE items SET ? WHERE ?",
       [
         {
-            current_bid: extraData.cost
+            current_bid: cost
         },
         {
-            id: extraData.bid
+            id: name
         }
       ],
       function(err, res) {
@@ -37,3 +36,6 @@ function bid() {
       }
     );
   }
+
+  module.exports =
+  bid
