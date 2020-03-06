@@ -1,7 +1,10 @@
 //C - Create a new item for sale
 
 //R - Retrieve all items availible for sale and their prices
+function retrieveItem(){
 
+    
+}
 //U - Update current bid on item
 
 function bid() {
