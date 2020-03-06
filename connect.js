@@ -16,8 +16,8 @@ const connection = mysql.createConnection({
 connection.connect(function(err) {
     if(err) throw err;
     console.log("connected as id: " + connection.threadId + "\n");
-    createBid("cup", 5);
-    createBid("phone", 25);
+    //createBid("cup", 5);  Insert inquirer data wit this function.
+    
 });
 
 const createBid = (item, price) => {
@@ -65,8 +65,4 @@ const timeOut = (itemId) => {
             selectAll();
         }
     }, 1000);
-}
-
-const slectId = (item) => {
-
 }
